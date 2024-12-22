@@ -4,6 +4,7 @@
 •	РИ-320936
 •	АТ-09
 Цель работы: изучить свойства компонента Collider, освоить реализацию игровых механик с применением свойств этого компонента
+
  ![image](https://github.com/user-attachments/assets/35c35eca-2d69-48b3-9700-538728de30b2)
 
 Рекомендуемые источники для изучения:
@@ -11,18 +12,24 @@
 2.	Тема Collider в материалах лекции
 1.Задания к работе
 1.1 Создайте сцену, изображенную на рисунке ниже:
+  	
 ![image](https://github.com/user-attachments/assets/fa0f4b84-7b59-4eef-ac3e-abb3ea8924a0)
+
 Сцена создана.
+
  ![image](https://github.com/user-attachments/assets/a262da3b-46db-43dd-9832-44f16cdaacac)
 
 1.2 Добавьте компоненты Rigidbody и Colliders на все объекты сцены так, чтобы при запуске симуляции объекты сталкивались с горкой и перемещались вниз по ней.
 Компоненты Rigidbody и Colliders на объекте CubeSid
+
  ![image](https://github.com/user-attachments/assets/5e729d22-58d0-4fd4-9874-017c3ae60b29)
 
 Компоненты Rigidbody и Colliders на объекте SphereNancy
+
  ![image](https://github.com/user-attachments/assets/892fe8ef-c327-4e97-b85a-189b232e8b6b)
 
 Компоненты Rigidbody и Colliders на объекте CapsuleBonny
+
  ![image](https://github.com/user-attachments/assets/e58f79ab-9a76-45b1-8486-592f016f9e8a)
 
 1.3 За физическое поведение коллайдеров при столкновении отвечают физические материалы, назначение в качестве материала коллайдера. Так можно создавать материалы с разной степенью “трения” и “прыгучести”. Создайте физический материал (клик ПКМ в окне Project - Create - Physic Material). Назовите материал EpicMaterial и назначьте его в качестве материала коллайдера объекта Slide (Горка).
@@ -31,33 +38,41 @@
 •	Static Friction - статическое трение
 •	Bounciness - прыгучесть материала коллайдера
 •	Friction и Bounce Compine - определяет по какому принципу объединяются параметры двух взаимодействующих коллайдеров с разными материалами. По умолчанию Average, т.е. берётся среднее значение.
+
  ![image](https://github.com/user-attachments/assets/e58f5bee-d315-4367-a164-123483b93936)
 
 1.5 Подберите такие значение физических материалов при которых:
+
  ![image](https://github.com/user-attachments/assets/e1e39b9a-35d2-4011-81da-d9a510aec84b)
 
 1.6 Приведите найденные значения переменных физического материала для двух примеров.
 Для примера, когда примитивы скатываются с горки: Dynamic Friction = 0; Static Friction = 0; Bounciness = 0; Friction Combine = Minimum или Multiply (особой разницы не заметил, потому что при обоих вариантах примитивы ведут себя одинаково); Bounce Combine = Average (особой роли не играет в данном случае).
 Значения переменных для первого случая
+
  ![image](https://github.com/user-attachments/assets/a229ae58-e4e1-46f6-849f-501e891ab5f3)
 
 Для примера, когда примитивы отскакивают от горки: Dynamic Friction = 0; Static Friction = 0; Bounciness = 1 (подойдёт любое число от 0 до 1, но при 1 будет самый сильный отскок); Friction Combine = Average или Maximum(особой разницы не заметил, потому что при обоих вариантах примитивы ведут себя одинаково); Bounce Combine = Maximum.
 Значения переменных для второго случая
+
  ![image](https://github.com/user-attachments/assets/753ad677-4158-421f-a4c9-e2a403a8943a)
 
 1.7 Создайте составной коллайдер цепи из десяти звеньев. Поэкспериментируйте с настройками Rigidbody (UseGravity и IsKinematic), чтобы цепь вела себя так, как показано ниже. Модель цели ChainElement.unitypackage скачайте по ссылке и добавьте в проект (в верхнем меню выберите Assets - Import Pacjage - Custom Package).
+
 ![image](https://github.com/user-attachments/assets/a0a9d7f1-31e2-46a8-bb8a-5c10c65e537b)
 
  Создал составной коллайдер цепи из десяти звеньев
+ 
 ![image](https://github.com/user-attachments/assets/bb60086d-3b4d-43d7-ae5e-93bf2b5f32d4)
 
 
 1.8 Дайте развернутый ответ, как должны быть настроены компоненты Rigidbody и Collider звеньев цепи
 Настройка компонента Rigidbody: у первого звена пункт Use Gravity выключаем, включаем пункт isKinematic; у оставшихся звеньев наоборот: включаем пункт Use Gravity и выключаем пункт isKinematic. Настройка компонента Collider: для каждого звена создаём 4 коллайдера (два для верхнего и нижнего элемента звена, два для боковых элементов звена); каждый коллайдер подгоняем по размерам цепи так, чтобы они охватывали её по периметру.
 1.9 Подразумевается, что на сцене, показанной ниже, цепь должна падать в коробку. Но по какой-то причине этого не происходит. Скачайте EpicSceneCollider.unitypackage, импортируйте в проект и ознакомьтесь с объектами на сцене и их компонентами:
+
  ![image](https://github.com/user-attachments/assets/6c27b3d9-11e0-436e-8bfb-2fac7bbb2c50)
 
 Скачал модель коробки и повторил сцену, описанную выше
+
  ![image](https://github.com/user-attachments/assets/ede3f6b6-8954-4273-b7a6-ba3354b0b21c)
 
 1.10 Настройте корректно коллайдеры объектов так, чтобы объекты вели себя на сцене так:
@@ -65,12 +80,15 @@
 •	Цепь должна оказаться внутри коробки
 •	Коробка должна оказаться на земле
 Настройка Rigidbody для звньев цепи
+
  ![image](https://github.com/user-attachments/assets/0028aa05-566f-4cab-99ca-120160fc264b)
 
 Настройка Rigidbody для коробки
+
  ![image](https://github.com/user-attachments/assets/9b231213-c61a-4bed-b25f-5cfca104bc2a)
 
 Настройка коллайдеров для коробки
+
  ![image](https://github.com/user-attachments/assets/1d0a2d0d-1a3f-4747-8ffc-8633f886dad0)
 
 1.11 Дайте развернутый ответ, как должны быть настроены компоненты Rigidbody и Collider для корректной работы сцены
